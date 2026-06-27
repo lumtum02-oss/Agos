@@ -1,0 +1,115 @@
+AGOS — TECHNICAL FLOW
+
+
+ARCHITECTURE (ASCII)
+
+   Payer wallet (Freighter)              Recipient wallet (Freighter)
+            |                                       |
+            |  SEP-10 connect / sign                |  SEP-10 connect / sign
+            v                                       v
+   +-----------------------------------------------------------+
+   |                     Next.js app (Agos)                    |
+   |                                                           |
+   |  POST /api/streams           GET /api/streams/:id/sse     |
+   |    createStream                live drip (calcEarned)     |
+   |        |                                                  |
+   |        v                                                  |
+   |  +---------------------+      +-------------------------+ |
+   |  | Postgres (streams)  |      | src/server/stellar/     | |
+   |  | mirror + ownership  |      |   soroban.ts (hub-signed)| |
+   |  +---------------------+      +------------+------------+ |
+   |        ^                                   |              |
+   |  POST /api/streams/:id/withdraw            |              |
+   |  POST /api/streams/:id/cancel              |              |
+   +--------------------------------------------|--------------+
+                                                v
+   +-----------------------------------------------------------+
+   |                  Stellar Testnet (Soroban)                |
+   |                                                           |
+   |   AgosStream contract                                     |
+   |   CDMSQ2YYSDBUUJNEF5SBZZLBY5QT52XAJVUBVGU4WILJ3VKD2KW4EL7D |
+   |                                                           |
+   |   create_stream(payer, recipient, total, start, end)      |
+   |     -> XLM SAC transfer payer -> contract (escrow)        |
+   |   withdraw(stream_id) -> vested XLM -> recipient          |
+   |   stop(stream_id)     -> vested -> recipient, rest -> payer|
+   |                                                           |
+   |   Native XLM SAC: CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47... |
+   +-----------------------------------------------------------+
+
+USDC streams (opt-in) settle via classic Horizon payments from the hub wallet
+instead of the contract.
+
+
+ON-CHAIN VESTING
+
+The amount vested is computed inside the contract from ledger time:
+
+   vested(now) = 0                                      if now <= start
+               = total                                  if now >= end
+               = total * (now - start) / (end - start)  otherwise
+
+withdrawable = vested - withdrawn. No server timer; the value is derived fresh on
+every read and withdrawal. The off-chain drip counter mirrors the same linear
+schedule for live display.
+
+
+STREAM STATE MACHINE
+
+   active  -> completed   (recipient has withdrawn the full total)
+   active  -> cancelled   (payer stops: vested settled, remainder reclaimed)
+   on-chain status: Active(0) -> Completed(1) | Stopped(2)
+
+
+WITHDRAWAL FLOW (XLM / contract)
+
+1. POST /api/streams/:id/withdraw (auth required).
+2. Service reads the stream's contract id and simulates withdrawable() on-chain.
+3. If > 0, invokes contract.withdraw(stream_id), signed by the hub key, via
+   Soroban RPC (build -> prepare -> sign -> submit -> poll), with retries for
+   transient testnet-RPC faults.
+4. Records a stream_withdrawals row, updates withdrawn_amount, marks completed if
+   the total is reached, and publishes a stream.withdrawn SSE event.
+5. The UI shows the real transaction hash with a stellar.expert link.
+
+
+CANCEL / STOP FLOW (XLM / contract)
+
+1. POST /api/streams/:id/cancel (payer only).
+2. Service invokes contract.stop(stream_id), signed by the hub key. The contract
+   settles the vested portion to the recipient and reclaims the unvested
+   remainder to the payer.
+3. Stream marked cancelled; the reclaim tx hash is shown.
+
+
+CONTRACT ENTRYPOINTS
+
+   initialize(admin, token)
+   create_stream(payer, recipient, total_amount, start_time, end_time) -> u64
+   withdraw(stream_id) -> i128
+   stop(stream_id) -> i128
+   vested_amount / withdrawable / get_stream / total_streams   (views)
+   pause / unpause / set_admin / upgrade                       (admin)
+
+
+API ENDPOINTS
+
+   POST /api/auth/challenge        issue SEP-10 challenge tx
+   POST /api/auth/verify           verify signature, set session cookie
+   GET  /api/auth/me               restore session
+   POST /api/auth/logout           clear session
+   GET  /api/streams               list streams
+   POST /api/streams               create a stream (XLM funds the contract)
+   GET  /api/streams/:id           stream detail
+   POST /api/streams/:id/withdraw  withdraw vested (contract.withdraw)
+   POST /api/streams/:id/cancel    stop + reclaim (contract.stop)
+   GET  /api/streams/:id/sse       live drip counter (Server-Sent Events)
+   GET  /api/trustline/usdc        USDC trustline status
+   POST /api/trustline/usdc        build changeTrust XDR
+   GET  /api/stats                 public interaction counts
+
+
+DECIMALS
+
+Database amounts use 6-decimal minor units. The native XLM SAC uses 7-decimal
+stroops. The soroban client converts at the boundary: stroops = minor * 10.

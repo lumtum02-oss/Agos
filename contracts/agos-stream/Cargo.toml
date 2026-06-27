@@ -1,0 +1,17 @@
+[package]
+name = "agos-stream"
+version = "0.1.0"
+edition = "2021"
+publish = false
+license = "MIT"
+description = "Soroban linear-vesting salary/grant stream: payer funds, recipient withdraws the time-vested amount, payer reclaims the unvested remainder on stop."
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+doctest = false
+
+[dependencies]
+soroban-sdk = "22"
+
+[dev-dependencies]
+soroban-sdk = { version = "22", features = ["testutils"] }
