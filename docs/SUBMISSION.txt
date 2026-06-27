@@ -1,0 +1,77 @@
+AGOS — STELLAR APAC HACKATHON SUBMISSION
+
+
+PROJECT NAME
+
+Agos (Tagalog: "flow") — payday is every second.
+
+
+PROJECT DESCRIPTION
+
+Agos turns salaries and grants into a live, on-chain money stream on Stellar.
+An employer or grant maker opens a stream for a recipient with a per-second
+rate and a funded total. For XLM streams, the full grant is escrowed in the
+AgosStream Soroban smart contract with a start/end schedule; the amount that has
+vested is computed on-chain from ledger time. The recipient withdraws the vested
+amount whenever they want and a real Stellar transaction settles it. There is no
+payday and no batch — money is always flowing.
+
+Live app:        https://agos-flame.vercel.app
+Network:         Stellar testnet
+AgosStream id:   CDMSQ2YYSDBUUJNEF5SBZZLBY5QT52XAJVUBVGU4WILJ3VKD2KW4EL7D
+
+
+PROBLEM STATEMENT
+
+1. Remote and cross-border teams are paid in monthly batches. Money is earned
+   continuously but released in lumps, creating cash-flow stress for workers.
+2. Early-wage-access and payroll tools are custodial, opaque, and regional.
+3. Grant and stipend programs face the same gap: funds are committed up front but
+   released on rigid schedules, with little transparency for the beneficiary.
+
+
+PROPOSED SOLUTION
+
+1. Replace batch payroll with a streaming primitive. The payer funds a stream
+   once; the recipient earns by the second.
+2. Escrow XLM streams in the AgosStream Soroban contract. Vesting is derived from
+   ledger time on-chain, so the available amount is trustlessly verifiable and
+   needs no server timer.
+3. Pull-based withdrawal: the recipient withdraws the vested amount at any time
+   and the contract pays it out on-chain. The payer can stop a stream early — the
+   contract settles the vested portion to the recipient and reclaims the rest.
+4. XLM is the default asset (no trustline). USDC is opt-in via a one-tap
+   changeTrust, settling through classic Horizon payments.
+
+
+TARGET USERS / AUDIENCE
+
+1. Startup founders and agencies paying remote contractors across APAC.
+2. Freelancers and contractors who want access to wages as they are earned.
+3. Grant and stipend programs that want transparent, time-vested disbursement.
+
+
+SELECTED FOCUS TRACK
+
+Savings & DeFi — programmable, on-chain salary/grant streaming on Stellar.
+
+
+EXPECTED STELLAR INTEGRATION
+
+1. Soroban smart contract (AgosStream, Rust / soroban-sdk 22): create_stream,
+   withdraw, stop, with on-chain linear vesting from ledger time. Deployed and
+   initialized on testnet.
+2. Native XLM Stellar Asset Contract (SAC) as the streamed token
+   (CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC) — no trustline.
+3. SEP-10 style wallet authentication via Freighter, pinned to the app's testnet
+   passphrase.
+4. Soroban RPC for contract invocation and simulation; Horizon for account
+   reads, USDC changeTrust, and USDC payments.
+
+
+RUN LOCALLY
+
+1. pnpm install
+2. cp .env.example .env.local   (fill in DB url + funded hub secret)
+3. pnpm db:push
+4. pnpm dev   (http://localhost:3004)

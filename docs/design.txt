@@ -1,0 +1,53 @@
+AGOS — DESIGN
+
+
+ELEVATOR PITCH
+
+Agos (Tagalog: "flow") streams salaries and grants by the second on Stellar.
+The payer funds a stream once; the recipient earns continuously and withdraws
+the vested amount instantly. XLM streams are escrowed in the AgosStream Soroban
+contract, which computes vesting on-chain from ledger time — no batch payday, no
+server timer, no trust in a backend ledger.
+
+
+PROBLEM
+
+1. Money is earned continuously but paid in monthly batches, straining the people
+   who can least absorb the delay.
+2. Existing early-wage-access tools are custodial and opaque.
+3. Grants and stipends are committed up front but released on rigid schedules with
+   little transparency for the beneficiary.
+
+
+SOLUTION
+
+1. The payer opens a stream: recipient address, per-second rate, funded total,
+   and asset.
+2. XLM streams are funded into the AgosStream Soroban contract with a start/end
+   schedule. Vesting is computed on-chain: vested = total * (now - start) /
+   (end - start), clamped between zero and the total.
+3. The recipient withdraws the vested-but-unwithdrawn amount at any time; the
+   contract pays out on-chain to the recipient's fixed address.
+4. The payer can stop a stream: the contract settles the vested portion to the
+   recipient and reclaims the unvested remainder to the payer.
+5. USDC is opt-in via one-tap changeTrust and settles through classic Horizon
+   payments.
+
+
+DEMO / WOW MOMENT
+
+The per-second drip counter on the stream page, mirroring the contract's on-chain
+schedule, ticks up in real time. Hit Withdraw and a real Stellar transaction
+fires from the contract — the explorer link proves the vested XLM moved on-chain.
+Money that is earned every second can now be withdrawn any second.
+
+
+VISUAL DIRECTION
+
+1. Primary color cyan-600 (#0891b2) — flowing water, the meaning of "agos".
+2. Typography: Inter for body, Playfair Display for headings — professional but
+   warm.
+3. Iconography: Waves (lucide-react) as the core motif.
+4. Layout: hero with a live drip counter; dashboard of stat cards + stream grid;
+   stream detail with a full drip counter, the on-chain contract panel, and the
+   withdraw / stop actions.
