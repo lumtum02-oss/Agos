@@ -65,18 +65,35 @@ USDC testnet issuer: `GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5`
 
 | | |
 |---|---|
-| ![Landing](../screen-shot/01-landing.jpg) | ![Connect](../screen-shot/02-connect-popup.jpg) |
+| ![Landing](screen-shot/01-landing.jpg) | ![Connect](screen-shot/02-connect-popup.jpg) |
 | Landing — "Payday is every second" | Connect — Freighter wallet popup |
-| ![New stream](../screen-shot/04-new-stream.jpg) | ![Active stream](../screen-shot/05-stream-active.jpg) |
+| ![New stream](screen-shot/04-new-stream.jpg) | ![Active stream](screen-shot/05-stream-active.jpg) |
 | New stream — asset selector, XLM pre-selected | Active stream — live drip counter |
-| ![Withdraw success](../screen-shot/06-withdraw-success.jpg) | ![Stats](../screen-shot/07-stats.jpg) |
+| ![Withdraw success](screen-shot/06-withdraw-success.jpg) | ![Stats](screen-shot/07-stats.jpg) |
 | Withdraw — real tx hash, explorer link | Agos in numbers |
 
-![Mobile](../screen-shot/08-mobile.jpg)
+![Mobile](screen-shot/08-mobile.jpg)
 
 *Mobile view*
 
 ---
+
+## Agos in numbers
+
+Every counter below is a real on-chain interaction — no seeds, no demo rows, no server-side timer faking the drip. `GET /api/stats` powers `/stats` and the same data backs this table.
+
+![Stats](screenshots/stats.jpg)
+
+| Metric | Value |
+|---|---|
+| Unique wallets | 70 |
+| Logins | 78 |
+| Total streams | 9 |
+| Active streams | 9 |
+| Withdrawals | 8 |
+| Total streamed (XLM) | 91.000 |
+| XLM streams | 9 |
+| USDC streams | 0 |
 
 ## Tech stack
 
