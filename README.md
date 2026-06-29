@@ -38,6 +38,12 @@ Browsing the landing page, public stats, and stream pages works **without connec
 source, tests, and deploy notes in [`contracts/`](contracts/).
 
 ---
+## Demo & Pitch Deck
+
+- **Demo Video:** [Watch Demo](https://drive.google.com/file/d/1hvPAeP6Uz5VNSUL5ZyYA6eqCUymLM8lA/view?usp=drive_link)
+- **Pitch Deck:** [View Pitch Deck](https://drive.google.com/file/d/1EGwfN1LlFC2arKQstj11k3GYJldeUQCq/view?usp=drive_link)
+
+---
 
 ## Asset model — XLM by default, USDC opt-in
 
