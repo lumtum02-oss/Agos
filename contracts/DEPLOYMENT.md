@@ -1,3 +1,16 @@
+## ✅ MAINNET (LIVE) — deployed 2026-07-12
+| Field | Value |
+|---|---|
+| Network | **public** (Public Global Stellar Network ; September 2015) |
+| Contract ID | `CAPPYXSC2OCS6S62PM2TW4EWMKAINRFOSTAH5SI23PJX72B3STU6GWTH` |
+| Wasm hash | `8fcbe728309356fdf3947bbea206fe1f4af93fa8be913c83f61765f30186903a` |
+| Admin / deployer | `GAYE5LCVFEYHH2BJ63K5VWELHG2QPAWT4YNZKYQS226VMP6SAEYSD5NV` |
+| Token (XLM SAC) | `CAS3J7GYLGXMF6TDJBBYYSE3HQ6BBSMLNUQ34T6TZMYMW2EVH34XOWMA` |
+| Deploy cost | ~16.0 XLM |
+| Explorer | https://stellar.expert/explorer/public/contract/CAPPYXSC2OCS6S62PM2TW4EWMKAINRFOSTAH5SI23PJX72B3STU6GWTH |
+
+---
+
 # AgosStream — Testnet Deployment
 
 | Field | Value |

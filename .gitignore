@@ -27,3 +27,16 @@ test-results/
 .vercel
 tsconfig.tsbuildinfo
 .env*
+
+# --- mainnet safety (auto) ---
+.env
+.env.*
+.env.local
+.env.local.testnet.bak
+*.bak
+contracts/target/
+node_modules/
+.next/
+
+.vercel
+.env*

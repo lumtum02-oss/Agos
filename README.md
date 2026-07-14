@@ -1,8 +1,16 @@
 # Agos — Payday is every second
 
+## 🌐 Mainnet (LIVE)
+
+- **Network:** Stellar public (mainnet)
+- **Soroban contract:** `CAPPYXSC2OCS6S62PM2TW4EWMKAINRFOSTAH5SI23PJX72B3STU6GWTH`
+- **Explorer:** https://stellar.expert/explorer/public/contract/CAPPYXSC2OCS6S62PM2TW4EWMKAINRFOSTAH5SI23PJX72B3STU6GWTH
+
+
+
 > **Agos** means *flow* in Filipino. It turns salaries and grants into a live stream of money on Stellar: a recipient earns by the second, and withdraws real funds whenever they want.
 
-**Live app:** https://agos-flame.vercel.app
+**Live app:** https://agos-stellar.vercel.app
 **Network:** Stellar testnet (Test SDF Network ; September 2015)
 **Track:** Savings & DeFi — Stellar APAC Hackathon
 
@@ -36,12 +44,6 @@ Browsing the landing page, public stats, and stream pages works **without connec
 **AgosStream contract (testnet):** `CDMSQ2YYSDBUUJNEF5SBZZLBY5QT52XAJVUBVGU4WILJ3VKD2KW4EL7D`
 ([view on stellar.expert](https://stellar.expert/explorer/testnet/contract/CDMSQ2YYSDBUUJNEF5SBZZLBY5QT52XAJVUBVGU4WILJ3VKD2KW4EL7D)) —
 source, tests, and deploy notes in [`contracts/`](contracts/).
-
----
-## Demo & Pitch Deck
-
-- **Demo Video:** [Watch Demo](https://drive.google.com/file/d/1hvPAeP6Uz5VNSUL5ZyYA6eqCUymLM8lA/view?usp=drive_link)
-- **Pitch Deck:** [View Pitch Deck](https://drive.google.com/file/d/1EGwfN1LlFC2arKQstj11k3GYJldeUQCq/view?usp=drive_link)
 
 ---
 
@@ -83,23 +85,6 @@ USDC testnet issuer: `GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5`
 *Mobile view*
 
 ---
-
-## Agos in numbers
-
-Every counter below is a real on-chain interaction — no seeds, no demo rows, no server-side timer faking the drip. `GET /api/stats` powers `/stats` and the same data backs this table.
-
-![Stats](screenshots/stats.jpg)
-
-| Metric | Value |
-|---|---|
-| Unique wallets | 70 |
-| Logins | 78 |
-| Total streams | 9 |
-| Active streams | 9 |
-| Withdrawals | 8 |
-| Total streamed (XLM) | 91.000 |
-| XLM streams | 9 |
-| USDC streams | 0 |
 
 ## Tech stack
 
