@@ -1,0 +1,86 @@
+{
+  "Metadata": {
+    "title": "Agos — Real-time Salary Streaming",
+    "description": "Stream salaries per-second on Stellar in XLM or USDC. Withdraw what you've earned, anytime."
+  },
+  "Hero": {
+    "eyebrow": "Agos",
+    "title": "Pay contractors\nper second.",
+    "subtitle": "Agos streams salaries in real time on Stellar — native XLM by default, USDC optional. Recipients withdraw earned amounts anytime. No batch payroll friction.",
+    "ctaPrimary": "Start Streaming",
+    "ctaSecondary": "View on GitHub"
+  },
+  "Nav": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "streams": "Streams",
+    "newStream": "New Stream",
+    "connectWallet": "Connect wallet",
+    "connecting": "Connecting…",
+    "disconnect": "Disconnect",
+    "installFreighter": "Install Freighter"
+  },
+  "Dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Manage your salary streams",
+    "totalStreams": "Total Streams",
+    "activeStreams": "Active Streams",
+    "totalPaidOut": "Total Paid Out",
+    "newStream": "New Stream",
+    "noStreams": "No streams yet",
+    "noStreamsHint": "Create your first salary stream to start paying contractors per-second.",
+    "createFirst": "Create First Stream"
+  },
+  "Stream": {
+    "title": "Stream Details",
+    "employee": "Employee",
+    "employer": "Employer",
+    "rate": "Rate",
+    "funded": "Funded",
+    "earned": "Earned",
+    "withdrawn": "Withdrawn",
+    "claimable": "Claimable",
+    "remaining": "Remaining",
+    "status": "Status",
+    "statusActive": "Active",
+    "statusCancelled": "Cancelled",
+    "statusCompleted": "Completed",
+    "statusPaused": "Paused",
+    "withdraw": "Withdraw",
+    "cancel": "Cancel Stream",
+    "withdrawConfirm": "Withdraw earned USDC",
+    "cancelConfirm": "Cancel this stream?",
+    "cancelHint": "Unearned funds will be returned to the employer.",
+    "perSecond": "/sec",
+    "perMonth": "/mo",
+    "elapsed": "Elapsed",
+    "txHash": "Transaction"
+  },
+  "NewStream": {
+    "title": "New Salary Stream",
+    "subtitle": "Set up per-second USDC payments for a contractor",
+    "employeePubkey": "Contractor Stellar Address",
+    "employeePubkeyPlaceholder": "G...",
+    "employeeName": "Stream label",
+    "employeeNamePlaceholder": "Recipient or team name",
+    "streamTitle": "Work / role",
+    "streamTitlePlaceholder": "e.g. Backend development",
+    "ratePerMonth": "Monthly Rate",
+    "ratePerMonthPlaceholder": "e.g. 312.00",
+    "fundedAmount": "Fund Amount (USDC)",
+    "fundedAmountPlaceholder": "e.g. 1000.00",
+    "create": "Create Stream",
+    "creating": "Creating…",
+    "success": "Stream created!",
+    "rateHint": "Rate per second: {rate} USDC/sec"
+  },
+  "Connect": {
+    "title": "Connect a wallet",
+    "subtitle": "Connect your Freighter wallet to manage salary streams.",
+    "freighterName": "Freighter",
+    "freighterSubtitle": "Browser extension",
+    "installFreighter": "Freighter extension is required to continue.",
+    "signing": "Waiting for signature in Freighter…",
+    "connectedToast": "Wallet connected"
+  }
+}
