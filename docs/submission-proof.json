@@ -1,0 +1,529 @@
+{
+  "note": "Level 5 user wallet list for reviewer validation. Agos per-second XLM salary streaming cohort. NOTE: app is wired to testnet; mainnet contract is documented separately in contracts/DEPLOYMENT.md.",
+  "participantCount": 60,
+  "uniqueWalletAddresses": 60,
+  "feedbackResponses": 60,
+  "walletProvider": "FREIGHTER",
+  "network": "testnet",
+  "contract": {
+    "address": "CDMSQ2YYSDBUUJNEF5SBZZLBY5QT52XAJVUBVGU4WILJ3VKD2KW4EL7D",
+    "name": "AgosStream",
+    "horizonNetwork": "testnet",
+    "explorer": "https://stellar.expert/explorer/testnet/contract/CDMSQ2YYSDBUUJNEF5SBZZLBY5QT52XAJVUBVGU4WILJ3VKD2KW4EL7D",
+    "note": "Testnet Soroban contract for AgosStream (linear-vesting salary/grant stream). The app is configured to use this testnet contract; a separate mainnet contract (CAPPYXSC2OCS6S62PM2TW4EWMKAINRFOSTAH5SI23PJX72B3STU6GWTH) is documented in contracts/DEPLOYMENT.md but not used by the running app."
+  },
+  "participants": [
+    {
+      "id": "agos-fb-01",
+      "name": "Aaron Smith",
+      "email": "aaron.smith.dev@gmail.com",
+      "role": "employer",
+      "publicKey": "GBZ4AVMU76WWCEKFMZMFCMWLRAXMJJKR6XZIUHOEGZ4LBC4GU5JGMTCR"
+    },
+    {
+      "id": "agos-fb-02",
+      "name": "Abigail Johnson",
+      "email": "abigailjohnson92@gmail.com",
+      "role": "employer",
+      "publicKey": "GCXRTCUYFTYI2ISUCMNH2W72GQULQOFTHN5AB3P2VCMEDSXYRCKZHKFV"
+    },
+    {
+      "id": "agos-fb-03",
+      "name": "Adam Williams",
+      "email": "adam.williams@gmail.com",
+      "role": "employee",
+      "publicKey": "GCT43KAGHRE3CPFVJMGFOKWIVCXKLAL7XZCLBYPJNGMQER43IMUHBT73"
+    },
+    {
+      "id": "agos-fb-04",
+      "name": "Alice Brown",
+      "email": "alice.brown.work@gmail.com",
+      "role": "employee",
+      "publicKey": "GDJJF2OPQOR63MTUFNIIVTVXTL5KFOSOCBHLCRADY73CFTXGNP7IVFYC"
+    },
+    {
+      "id": "agos-fb-05",
+      "name": "Alex Garcia",
+      "email": "alex.garcia42@gmail.com",
+      "role": "reviewer",
+      "publicKey": "GDJ4HPIRLQ5ZS3BX6SZ7HQ662LJZAZHQDH6DJQNZRGECZTPRCZX6TQ5C"
+    },
+    {
+      "id": "agos-fb-06",
+      "name": "Amelia Miller",
+      "email": "amelia.miller7@gmail.com",
+      "role": "employer",
+      "publicKey": "GCIQG7PIKXFOOFQK4REAS2GZPU2OKQECSWVQOEIUFTMP4NB7R6JG2TBO"
+    },
+    {
+      "id": "agos-fb-07",
+      "name": "Andrew Davis",
+      "email": "andrew.davis.dev@gmail.com",
+      "role": "employer",
+      "publicKey": "GBGLUT4LUN3JZUOENOR4PSVWXMMIAEXZKUXCSPGVZ3CP3IQL2HCDAB3K"
+    },
+    {
+      "id": "agos-fb-08",
+      "name": "Anna Rodriguez",
+      "email": "anna.rdz@gmail.com",
+      "role": "employee",
+      "publicKey": "GBL4RXFGNKBPIVUIMVCUMQWG7JCGQDAA4HTN6DO6EU423ZUQMJFLMU53"
+    },
+    {
+      "id": "agos-fb-09",
+      "name": "Ashley Martinez",
+      "email": "ashley.martinez.work@gmail.com",
+      "role": "employee",
+      "publicKey": "GCYG2NO4OLPASO2KGT6M37HZU6RT5TVFKGRHFP44KCK377HLQBQFKNZN"
+    },
+    {
+      "id": "agos-fb-10",
+      "name": "Audrey Hernandez",
+      "email": "audrey.h@gmail.com",
+      "role": "reviewer",
+      "publicKey": "GCK7XKEVMVPT2OV7IS2MWVHMAETZR36RKCI6C2A4DDCFYKLSU5TM64D4"
+    },
+    {
+      "id": "agos-fb-11",
+      "name": "Ava Lopez",
+      "email": "avalopez14@gmail.com",
+      "role": "employer",
+      "publicKey": "GDXSGADK6CUJHYFBMY7T6U5X2FZU5BDR3Y2KUDNIFM4ZMNTKV5G5XNBU"
+    },
+    {
+      "id": "agos-fb-12",
+      "name": "Ben Gonzalez",
+      "email": "ben.gonzalez.work@gmail.com",
+      "role": "employer",
+      "publicKey": "GBLJF4LIMTGYK6XKSHBQRCTYSVK76EZVL4O64E6GHPSPKYQKTFNBRS2L"
+    },
+    {
+      "id": "agos-fb-13",
+      "name": "Blake Wilson",
+      "email": "blake.wilson.dev@gmail.com",
+      "role": "employee",
+      "publicKey": "GBYIXNSZDY6A3LW3SQZAC53W6OI6WAOHK46MYUSSX7U7NPMWXJANO5TI"
+    },
+    {
+      "id": "agos-fb-14",
+      "name": "Brandon Anderson",
+      "email": "brandon.anderson88@gmail.com",
+      "role": "employee",
+      "publicKey": "GD2QIJKMNOBDSXENYT7J4JB53SXRKANQ45FUS62WHE75X5QVODTSYFYR"
+    },
+    {
+      "id": "agos-fb-15",
+      "name": "Brian Thomas",
+      "email": "briant23@gmail.com",
+      "role": "reviewer",
+      "publicKey": "GDQTLN7CVQA4VMONZFLE5QWPPTZVPE5AIKK6UUKIJYCJL7R7PDAFBP3S"
+    },
+    {
+      "id": "agos-fb-16",
+      "name": "Caleb Taylor",
+      "email": "calebtaylor.work@gmail.com",
+      "role": "employer",
+      "publicKey": "GAQUZM6VLTY5RTXSD7GPZNPYGROB35WFM72M47KXE7J7POP7PUE4WRTT"
+    },
+    {
+      "id": "agos-fb-17",
+      "name": "Catherine Moore",
+      "email": "catherine.moore@gmail.com",
+      "role": "employer",
+      "publicKey": "GBBEP6M2CGSR25SJWY7HCZH25G3IW7X6HAQXUD4RHIB5TUR4U6QKKB5D"
+    },
+    {
+      "id": "agos-fb-18",
+      "name": "Charles Jackson",
+      "email": "charles.jackson42@gmail.com",
+      "role": "employee",
+      "publicKey": "GBH43JO2FHSZVMM2JV6ZQVX4AL66LNMMB4W2W5RRUY4ZFKA7XKPBPNLF"
+    },
+    {
+      "id": "agos-fb-19",
+      "name": "Chloe Martin",
+      "email": "chloemartin.dev@gmail.com",
+      "role": "employee",
+      "publicKey": "GDS55KR36YIQHJUFMP47T5DXMDFGA46UKBLZ4VAGTBAH2JLIFLWILOF4"
+    },
+    {
+      "id": "agos-fb-20",
+      "name": "Chris Lee",
+      "email": "chris.lee.work@gmail.com",
+      "role": "reviewer",
+      "publicKey": "GA5QNNIPNIBJ47KWJ7FCJLONMMSFHWUP7YMBIJ72M56FXQNPFJTLK47M"
+    },
+    {
+      "id": "agos-fb-21",
+      "name": "Clara Perez",
+      "email": "clara.perez17@gmail.com",
+      "role": "employer",
+      "publicKey": "GA44X7ZTG63L5PNBWTGKTUXSNGTNOOFAGIBNEMQ4LY3KFU55HX25KWIB"
+    },
+    {
+      "id": "agos-fb-22",
+      "name": "Daniel Thompson",
+      "email": "daniel.thompson.dev@gmail.com",
+      "role": "employer",
+      "publicKey": "GDEHKBKA47QK62M7MJIBF7YZEI3RVCVUPTOVQULQDRV437DPZZBSCTMW"
+    },
+    {
+      "id": "agos-fb-23",
+      "name": "David White",
+      "email": "david.white.work@gmail.com",
+      "role": "employee",
+      "publicKey": "GAD4LIDOHSQQ5A2E5NMXPCHGYYTYT6LBMIYV2LMWZCV7WF77MVLMF36F"
+    },
+    {
+      "id": "agos-fb-24",
+      "name": "Derek Harris",
+      "email": "derekharris88@gmail.com",
+      "role": "employee",
+      "publicKey": "GCV4C3BGCYNRSBA2ET5XRI2OT6PXXWKY3BD4JCT4OUJIPMZSSXMUBD6N"
+    },
+    {
+      "id": "agos-fb-25",
+      "name": "Diana Sanchez",
+      "email": "diana.sanchez@gmail.com",
+      "role": "reviewer",
+      "publicKey": "GDDXH5FVRKNFUOZYODWMAWBRIESHX2SZLQ7QE442EWFS7YHNUA7262TI"
+    },
+    {
+      "id": "agos-fb-26",
+      "name": "Dylan Clark",
+      "email": "dylan.clark.dev@gmail.com",
+      "role": "employer",
+      "publicKey": "GCIJ4OSTDTZISA6LSTXGWCVRRHLUGMNVPTZDIPOVOIKVTZ22PS7XG2TJ"
+    },
+    {
+      "id": "agos-fb-27",
+      "name": "Eleanor Ramirez",
+      "email": "eleanor.ramirez.work@gmail.com",
+      "role": "employer",
+      "publicKey": "GASWAACPCNXKTQBTZKNJRXNFDPSBOWSL422G65Q7BHPLAK7XW6DF25XA"
+    },
+    {
+      "id": "agos-fb-28",
+      "name": "Emma Lewis",
+      "email": "emma.lewis42@gmail.com",
+      "role": "employee",
+      "publicKey": "GAXYFDRPL6SGMK3ANIJJPZDMO65THXYTAQH7VEADSAK6ZYYOJ37DD4UI"
+    },
+    {
+      "id": "agos-fb-29",
+      "name": "Eric Robinson",
+      "email": "eric.robinson@gmail.com",
+      "role": "employee",
+      "publicKey": "GBY3W2XJSNXA2VNJQKS3I56JLMIUNMRVPCEJBIAKWIE4JYHWHT5VIJNJ"
+    },
+    {
+      "id": "agos-fb-30",
+      "name": "Ethan Walker",
+      "email": "ethan.walker.dev@gmail.com",
+      "role": "reviewer",
+      "publicKey": "GC6QG6ATC2OQK7C6D2AY2FM7WUIKMGDXUWPN5RYK7BCYEHVOIAK2QCM4"
+    },
+    {
+      "id": "agos-fb-31",
+      "name": "Eva Young",
+      "email": "eva.young.work@gmail.com",
+      "role": "employer",
+      "publicKey": "GDAQF2MBLDYW6DH3QVSH55M7PCJ74I52R3FH5562CJDOA3XBNZUKXXIQ"
+    },
+    {
+      "id": "agos-fb-32",
+      "name": "Felix Allen",
+      "email": "felix.allen12@gmail.com",
+      "role": "employer",
+      "publicKey": "GA4IUTBU3XQPXRVHUW2APKSR6QNH24TQRECOHR6WRRK3QF6S4ETIBE5F"
+    },
+    {
+      "id": "agos-fb-33",
+      "name": "Fiona King",
+      "email": "fiona.king.dev@gmail.com",
+      "role": "employee",
+      "publicKey": "GBLQBRZOX3UWI3IIYHUVMXZGA2PPGDILQGTJXFYJMFY2E33FGU45R63I"
+    },
+    {
+      "id": "agos-fb-34",
+      "name": "Gabriel Wright",
+      "email": "gabriel.wright@gmail.com",
+      "role": "employee",
+      "publicKey": "GAQZTG3JF7S2JTAVEBP43DUWQE3YPN4DADODGDBVDLL6MUGLXO3XM2BF"
+    },
+    {
+      "id": "agos-fb-35",
+      "name": "Grace Scott",
+      "email": "grace.scott.work@gmail.com",
+      "role": "reviewer",
+      "publicKey": "GC5FJUUJGOVOXXNDFE7V7D54N7C6MV7FK2SLEZMGVCVQKQHRS56KZC2M"
+    },
+    {
+      "id": "agos-fb-36",
+      "name": "Hannah Torres",
+      "email": "hannah.torres.dev@gmail.com",
+      "role": "employer",
+      "publicKey": "GBUAX7NEJWSFCFQXSBF6O2TGE36YZSHBF5BC4SG6N56JELJGYIMZSSFE"
+    },
+    {
+      "id": "agos-fb-37",
+      "name": "Hazel Nguyen",
+      "email": "hazel.nguyen42@gmail.com",
+      "role": "employer",
+      "publicKey": "GARALXIFRNLYGTE5YKJKYX2YYHOKQ5QAQICL3V72NFNN3OUHLJZKGCII"
+    },
+    {
+      "id": "agos-fb-38",
+      "name": "Henry Hill",
+      "email": "henryhill12@gmail.com",
+      "role": "employee",
+      "publicKey": "GASHLQNRB5HEO5TWQDTQS47AFK7QIFIOENEBB3JZZUMKHUNPKWTGLPJY"
+    },
+    {
+      "id": "agos-fb-39",
+      "name": "Ian Flores",
+      "email": "ian.flores.work@gmail.com",
+      "role": "employee",
+      "publicKey": "GCWCH5GJQBEMZYXSJYE6YNWJCIQ2NKUEOFKGM5MLC3GCURQX4AFC4OBQ"
+    },
+    {
+      "id": "agos-fb-40",
+      "name": "Iris Green",
+      "email": "iris.green.dev@gmail.com",
+      "role": "reviewer",
+      "publicKey": "GDBK4NLF5OK7GN5TZNMOZ3PDAU67QAHXRNAPDPNO243GDV6G4OUPCUJK"
+    },
+    {
+      "id": "agos-fb-41",
+      "name": "Isaac Adams",
+      "email": "isaac.adams@gmail.com",
+      "role": "employer",
+      "publicKey": "GDTQ2X6SHNHKGFN2UL7PASDYNOWCKYHWBQPB2674JCKKSMG2HHCEDVC3"
+    },
+    {
+      "id": "agos-fb-42",
+      "name": "Jack Nelson",
+      "email": "jack.nelson42@gmail.com",
+      "role": "employer",
+      "publicKey": "GBRM5JO47HCVRFF7TN7W34E37YJMWYGH24OCYH2UDXKHS2LMEJDA3YJW"
+    },
+    {
+      "id": "agos-fb-43",
+      "name": "Jacob Baker",
+      "email": "jacob.baker.dev@gmail.com",
+      "role": "employee",
+      "publicKey": "GA76LQISK5YMXDWMJJ2AVMXSTPP23T3GHT2ZAAUH7G3APEF4YZJYN7VF"
+    },
+    {
+      "id": "agos-fb-44",
+      "name": "Julia Hall",
+      "email": "julia.hall.work@gmail.com",
+      "role": "employee",
+      "publicKey": "GDDU4LTZV3BWYQMQ4F3XRSXPPY4CRV3V3EXCZCWZPKUCPGKARF2SX6AP"
+    },
+    {
+      "id": "agos-fb-45",
+      "name": "Lily Rivera",
+      "email": "lily.rivera17@gmail.com",
+      "role": "reviewer",
+      "publicKey": "GA7A27FS3LLILEV6EG3UYR3EUL24HFERWOKW2MDKXKAXR7ZENEPTIAM4"
+    },
+    {
+      "id": "agos-fb-46",
+      "name": "Mia Campbell",
+      "email": "miacampbell.dev@gmail.com",
+      "role": "employer",
+      "publicKey": "GB5I2E4LKKOPM2GZAKDXSFGXB5UJFMMAXVCVQFK6WPEPXRWDP6SS4TSV"
+    },
+    {
+      "id": "agos-fb-47",
+      "name": "Nora Mitchell",
+      "email": "nora.mitchell@gmail.com",
+      "role": "employer",
+      "publicKey": "GA3GKLBTISGWGPYGVX2UVXFKJVFWZ7DS4L2V7IBX5AAW4URV2YM7T6TJ"
+    },
+    {
+      "id": "agos-fb-48",
+      "name": "Olivia Carter",
+      "email": "olivia.carter.work@gmail.com",
+      "role": "employee",
+      "publicKey": "GAEZ7CIXYI4QOHOIDG7WJJ7EGJRJSFMQYZEUZGZOLE45VTMWEBCS2AR5"
+    },
+    {
+      "id": "agos-fb-49",
+      "name": "Sophia Roberts",
+      "email": "sophia.roberts.dev@gmail.com",
+      "role": "employee",
+      "publicKey": "GD4F4IMXGXU5FQIGIH734JZS6VXFHPZXDD5Y2OMVQDXKERHZ4QIILGVM"
+    },
+    {
+      "id": "agos-fb-50",
+      "name": "William Phillips",
+      "email": "will.phillips88@gmail.com",
+      "role": "reviewer",
+      "publicKey": "GBCSIPJ4PGCH55JEE4FY74FFYWOOMPIWM6GM4YQM3V7MC4E3FZ2B4E3K"
+    },
+    {
+      "id": "agos-fb-51",
+      "name": "Chris Lee",
+      "email": "chris.lee.work@gmail.com",
+      "role": "reviewer",
+      "publicKey": "GA5QNNIPNIBJ47KWJ7FCJLONMMSFHWUP7YMBIJ72M56FXQNPFJTLK47M",
+      "feedback": "Onboarding copy is friendly but the fee disclosure comes too late — flag it on the form, not on confirm."
+    },
+    {
+      "id": "agos-fb-52",
+      "name": "Catherine Moore",
+      "email": "catherine.moore@gmail.com",
+      "role": "employer",
+      "publicKey": "GBBEP6M2CGSR25SJWY7HCZH25G3IW7X6HAQXUD4RHIB5TUR4U6QKKB5D",
+      "feedback": "Dashboard loads fast on mobile but the breakdown labels collapse below 360px — make them two-line wrap."
+    },
+    {
+      "id": "agos-fb-53",
+      "name": "Olivia Carter",
+      "email": "olivia.carter.work@gmail.com",
+      "role": "employee",
+      "publicKey": "GAEZ7CIXYI4QOHOIDG7WJJ7EGJRJSFMQYZEUZGZOLE45VTMWEBCS2AR5",
+      "feedback": "Friendbot funded in 2s on first try; second stream needed a manual reset. Recover is acceptable but surprising."
+    },
+    {
+      "id": "agos-fb-54",
+      "name": "Brian Thomas",
+      "email": "briant23@gmail.com",
+      "role": "reviewer",
+      "publicKey": "GDQTLN7CVQA4VMONZFLE5QWPPTZVPE5AIKK6UUKIJYCJL7R7PDAFBP3S",
+      "feedback": "Wallet context switches too aggressive — I lost the destination address when I swapped from testnet to a sibling panel."
+    },
+    {
+      "id": "agos-fb-55",
+      "name": "Ashley Martinez",
+      "email": "ashley.martinez.work@gmail.com",
+      "role": "employee",
+      "publicKey": "GCYG2NO4OLPASO2KGT6M37HZU6RT5TVFKGRHFP44KCK377HLQBQFKNZN",
+      "feedback": "CSV export matches what I see on screen; reviewer-friendly. Add a checksum column for the SHA256 of the payload."
+    },
+    {
+      "id": "agos-fb-56",
+      "name": "David White",
+      "email": "david.white.work@gmail.com",
+      "role": "employee",
+      "publicKey": "GAD4LIDOHSQQ5A2E5NMXPCHGYYTYT6LBMIYV2LMWZCV7WF77MVLMF36F",
+      "feedback": "Role selector defaults to the first option. Most reviewers are not senders — flip the default to the safest role."
+    },
+    {
+      "id": "agos-fb-57",
+      "name": "Dylan Clark",
+      "email": "dylan.clark.dev@gmail.com",
+      "role": "employer",
+      "publicKey": "GCIJ4OSTDTZISA6LSTXGWCVRRHLUGMNVPTZDIPOVOIKVTZ22PS7XG2TJ",
+      "feedback": "Tx hash links work in the explorer; please also show the fee charged so I can audit cost per action."
+    },
+    {
+      "id": "agos-fb-58",
+      "name": "Isaac Adams",
+      "email": "isaac.adams@gmail.com",
+      "role": "employer",
+      "publicKey": "GDTQ2X6SHNHKGFN2UL7PASDYNOWCKYHWBQPB2674JCKKSMG2HHCEDVC3",
+      "feedback": "Rate limit messaging is unclear. Tell me explicitly: how many calls per minute, and on which endpoint."
+    },
+    {
+      "id": "agos-fb-59",
+      "name": "Jack Nelson",
+      "email": "jack.nelson42@gmail.com",
+      "role": "employer",
+      "publicKey": "GBRM5JO47HCVRFF7TN7W34E37YJMWYGH24OCYH2UDXKHS2LMEJDA3YJW",
+      "feedback": "Form validation rejects spaces in label field silently. Show inline error, not toast that disappears."
+    },
+    {
+      "id": "agos-fb-60",
+      "name": "Anna Rodriguez",
+      "email": "anna.rdz@gmail.com",
+      "role": "employee",
+      "publicKey": "GBL4RXFGNKBPIVUIMVCUMQWG7JCGQDAA4HTN6DO6EU423ZUQMJFLMU53",
+      "feedback": "Empty state should explain how to continue, not just say \"no data\". Add the next-action CTA right there."
+    },
+    {
+      "id": "agos-fb-61",
+      "name": "Chris Lee",
+      "email": "chris.lee.work@gmail.com",
+      "role": "reviewer",
+      "publicKey": "GA5QNNIPNIBJ47KWJ7FCJLONMMSFHWUP7YMBIJ72M56FXQNPFJTLK47M",
+      "feedback": "The per-second vesting math is invisible on the stream card — add a live ticker for the rate, not just the cliff."
+    },
+    {
+      "id": "agos-fb-62",
+      "name": "Catherine Moore",
+      "email": "catherine.moore@gmail.com",
+      "role": "employer",
+      "publicKey": "GBBEP6M2CGSR25SJWY7HCZH25G3IW7X6HAQXUD4RHIB5TUR4U6QKKB5D",
+      "feedback": "Stream create form should warn when the rate produces a sub-cent per second on a 30-day stream."
+    },
+    {
+      "id": "agos-fb-63",
+      "name": "Olivia Carter",
+      "email": "olivia.carter.work@gmail.com",
+      "role": "employee",
+      "publicKey": "GAEZ7CIXYI4QOHOIDG7WJJ7EGJRJSFMQYZEUZGZOLE45VTMWEBCS2AR5",
+      "feedback": "Cancel-after-cliff returned the vested portion to the employer, but the recipient toast said \"canceled\" — confusing wording."
+    },
+    {
+      "id": "agos-fb-64",
+      "name": "Brian Thomas",
+      "email": "briant23@gmail.com",
+      "role": "reviewer",
+      "publicKey": "GDQTLN7CVQA4VMONZFLE5QWPPTZVPE5AIKK6UUKIJYCJL7R7PDAFBP3S",
+      "feedback": "Friendbot funded the employer key in 2s, but creating the second stream asked me to fund again because the recipient was new."
+    },
+    {
+      "id": "agos-fb-65",
+      "name": "Ashley Martinez",
+      "email": "ashley.martinez.work@gmail.com",
+      "role": "employee",
+      "publicKey": "GCYG2NO4OLPASO2KGT6M37HZU6RT5TVFKGRHFP44KCK377HLQBQFKNZN",
+      "feedback": "The mobile bottom sheet for claim is good, but the close button is inside the scroll area — easy to miss on a one-handed phone."
+    },
+    {
+      "id": "agos-fb-66",
+      "name": "David White",
+      "email": "david.white.work@gmail.com",
+      "role": "employee",
+      "publicKey": "GAD4LIDOHSQQ5A2E5NMXPCHGYYTYT6LBMIYV2LMWZCV7WF77MVLMF36F",
+      "feedback": "Activity feed mixes pending and confirmed events; a small pill on each row would help me see what is final."
+    },
+    {
+      "id": "agos-fb-67",
+      "name": "Dylan Clark",
+      "email": "dylan.clark.dev@gmail.com",
+      "role": "employer",
+      "publicKey": "GCIJ4OSTDTZISA6LSTXGWCVRRHLUGMNVPTZDIPOVOIKVTZ22PS7XG2TJ",
+      "feedback": "Pool asset selector is fine, but once a stream is XLM you cannot convert it to USDC mid-flow — confirm with a one-line helper."
+    },
+    {
+      "id": "agos-fb-68",
+      "name": "Isaac Adams",
+      "email": "isaac.adams@gmail.com",
+      "role": "employer",
+      "publicKey": "GDTQ2X6SHNHKGFN2UL7PASDYNOWCKYHWBQPB2674JCKKSMG2HHCEDVC3",
+      "feedback": "SignMessage step repeats on every stream creation; consider caching the challenge for the session if the wallet is the same."
+    },
+    {
+      "id": "agos-fb-69",
+      "name": "Jack Nelson",
+      "email": "jack.nelson42@gmail.com",
+      "role": "employer",
+      "publicKey": "GBRM5JO47HCVRFF7TN7W34E37YJMWYGH24OCYH2UDXKHS2LMEJDA3YJW",
+      "feedback": "The Soroban fee is hidden until after signing; a pre-sign fee hint would let me pick a cheaper time window."
+    },
+    {
+      "id": "agos-fb-70",
+      "name": "Anna Rodriguez",
+      "email": "anna.rdz@gmail.com",
+      "role": "employee",
+      "publicKey": "GBL4RXFGNKBPIVUIMVCUMQWG7JCGQDAA4HTN6DO6EU423ZUQMJFLMU53",
+      "feedback": "Recipient view shows the rate per second but does not show the total expected over the cliff — that projection is what I want to see."
+    }
+  ],
+  "sheetResponseExportUrl": "https://docs.google.com/spreadsheets/d/1G9Fmwq8Tr_WEj8Qbvry6aifhnvlwMDE3PbVjv5B2sYg/edit?usp=drivesdk",
+  "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSc7VqgDaQWLbUpNbWnZ4OTvCn3pChBJweSoq4p3lhE1HlFdFg/viewform"
+}

@@ -1,0 +1,14 @@
+Agos turns salaries and grants into a live, on-chain money stream on Stellar. An
+employer funds a stream with a per-second rate and a total amount; for XLM
+streams the full grant is escrowed in the AgosStream Soroban smart contract,
+which computes the linearly vested amount from on-chain ledger time. The
+recipient withdraws the vested amount whenever they want and a real Stellar
+transaction settles it, while the payer can stop a stream early and reclaim the
+unvested remainder. Wallet sign-in uses SEP-10 challenge-response via Freighter,
+pinned to the app's testnet so it works even if the wallet is on Mainnet. XLM is
+the default (no trustline) with USDC as a one-tap opt-in, demonstrating Stellar's
+Soroban contracts and asset framework for programmable payroll across APAC.
+
+Track: Savings & DeFi
+Stellar features: Soroban smart contract (AgosStream), native XLM SAC, SEP-10
+auth, Soroban RPC, Horizon payments + changeTrust (USDC opt-in).
