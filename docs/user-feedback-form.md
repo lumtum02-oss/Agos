@@ -27,4 +27,9 @@ The two URLs above (`<AGOS_GOOGLE_FORM_URL>` and `<AGOS_GOOGLE_SHEET_URL>`) are 
 
 ## Sheet response export
 
-- Native Google Sheet response export: https://docs.google.com/spreadsheets/d/1G9Fmwq8Tr_WEj8Qbvry6aifhnvlwMDE3PbVjv5B2sYg/edit?usp=drivesdk
+- Native Google Sheet response export: https://docs.google.com/spreadsheets/d/1CqaIoeIPq8-hQZ58NjVFRxAkbMq757FzSikRApO5MbE/edit?usp=drivesdk
+
+
+## Live Form URL
+
+- Google Form: https://docs.google.com/forms/d/e/1FAIpQLSc7VqgDaQWLbUpNbWnZ4OTvCn3pChBJweSoq4p3lhE1HlFdFg/viewform
