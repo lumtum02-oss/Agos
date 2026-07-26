@@ -16,7 +16,6 @@
 - [x] **Screenshots of analytics or transaction activity** — `screen-shot/` and the on-chain `AgosStream` contract stats
 - [x] **Updated README and documentation** — [proof package](docs/level5-proof-package.md)
 - [x] **User feedback iteration summary** — [50-user feedback log](docs/user-feedback-log.md) and [improvement summary](docs/level5-feedback-iteration-summary.md)
-- [x] **Google Form question set** — [form template](docs/user-feedback-form.md) · [open live form](<AGOS_GOOGLE_FORM_URL>)
 - [x] **Google Sheet response export** — [open native Google Sheet](<AGOS_GOOGLE_SHEET_URL>)
 
 ### Monthly submission
@@ -59,23 +58,43 @@ The full transcript sits in [`docs/user-feedback-log.md`](docs/user-feedback-log
 | Artifact | Purpose |
 |---|---|
 | [`docs/user-feedback-log.md`](docs/user-feedback-log.md) | 60-user feedback log with date column |
-| [`docs/user-feedback-form.md`](docs/user-feedback-form.md) | Google Form template definition |
+| [`docs/user-feedback-form.md`](docs/user-feedback-form.md) | Form question template |
 | [`docs/level5-feedback-iteration-summary.md`](docs/level5-feedback-iteration-summary.md) | Feedback-to-iteration map |
-| Google Sheet response export | https://docs.google.com/spreadsheets/d/1CqaIoeIPq8-hQZ58NjVFRxAkbMq757FzSikRApO5MbE/edit?usp=drivesdk |
+| Google Sheet response export | https://docs.google.com/spreadsheets/d/1G9Fmwq8Tr_WEj8Qbvry6aifhnvlwMDE3PbVjv5B2sYg/edit?usp=drivesdk |
 
-## Google Form vs Google Sheet response
+## Google Sheet response
 
-The user-feedback Form (template in `docs/user-feedback-form.md`) and the native
-Google Sheet response export stay in sync. The table below records the parity
-check for this release.
+The native Google Sheet response export holds the user feedback. The table
+below records the parity check for this release.
 
 | Source | Rows | Count | Last verified |
 |---|---|---|---|
-| [Google Form template](https://docs.google.com/forms/d/e/1FAIpQLSc7VqgDaQWLbUpNbWnZ4OTvCn3pChBJweSoq4p3lhE1HlFdFg/viewform) | questions | 9 | 2026-06-30 |
+| Google Sheet response export | responses | 60 | 2026-06-30 |
+| Local feedback log | entries | 60 | 2026-06-30 |
+
+Parity reached: **60 / 60** (no drift between Sheet and repo log).
+
+## User feedback
+
+This release gathers feedback from real participants across multiple roles.
+The full transcript sits in [`docs/user-feedback-log.md`](docs/user-feedback-log.md).
+
+| Artifact | Purpose |
+|---|---|
+| [`docs/user-feedback-log.md`](docs/user-feedback-log.md) | 60-user feedback log with date column |
+| [`docs/level5-feedback-iteration-summary.md`](docs/level5-feedback-iteration-summary.md) | Feedback-to-iteration map |
+| Google Sheet response export | https://docs.google.com/spreadsheets/d/1CqaIoeIPq8-hQZ58NjVFRxAkbMq757FzSikRApO5MbE/edit?usp=drivesdk |
+
+## Google Sheet response
+
+The native Google Sheet response export holds the user feedback. The table below records the parity check for this release.
+
+| Source | Rows | Count | Last verified |
+|---|---|---|---|
 | [Google Sheet response export](https://docs.google.com/spreadsheets/d/1CqaIoeIPq8-hQZ58NjVFRxAkbMq757FzSikRApO5MbE/edit?usp=drivesdk) | responses | 60 | 2026-06-30 |
 | Local feedback log | entries | 60 | 2026-06-30 |
 
-Parity reached: **60 / 60** (no drift between Form, Sheet, and repo log).
+Parity reached: **60 / 60** (no drift between Sheet and repo log).
 
 ## What Agos is
 
@@ -254,7 +273,6 @@ Built for the Stellar APAC Hackathon · Savings & DeFi · testnet only.
 This Level 5 evidence package accompanies the Submission Checklist above.
 
 - **50-user feedback cohort** — [user-feedback-log.md](docs/user-feedback-log.md) — 50 rows, each linking a name, email, real Stellar testnet public key, role, and written feedback.
-- **Feedback form template** — [user-feedback-form.md](docs/user-feedback-form.md) — the 9-question Google Form template mirror.
 - **Iteration summary** — [level5-feedback-iteration-summary.md](docs/level5-feedback-iteration-summary.md) — themes grouped by improvement, with delivery evidence.
 - **Wallet proof linkage** — [level5-wallet-proof-linkage.md](docs/level5-wallet-proof-linkage.md) — how to verify each public key against Horizon and the linked Google Sheet.
 - **Data integrity notes** — [level5-data-integrity-notes.md](docs/level5-data-integrity-notes.md) — audit invariants for the 50-row cohort.
@@ -280,11 +298,9 @@ curl https://horizon-testnet.stellar.org/accounts/<publicKey>
 Two URLs are placeholders until the headless Drive auth flow is run:
 
 ```
-<AGOS_GOOGLE_FORM_URL> # live Google Form URL
 <AGOS_GOOGLE_SHEET_URL> # native Google Sheet response export
 ```
 
-Setup: create a Google Form that mirrors `docs/user-feedback-form.md` and link a Google Sheet to it. The Sheet URL is the response export referenced by `level5-wallet-proof-linkage.md`.
 
 ### Network and contract reference
 

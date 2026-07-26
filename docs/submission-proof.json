@@ -442,8 +442,88 @@
       "role": "employee",
       "publicKey": "GBL4RXFGNKBPIVUIMVCUMQWG7JCGQDAA4HTN6DO6EU423ZUQMJFLMU53",
       "feedback": "Empty state should explain how to continue, not just say \"no data\". Add the next-action CTA right there."
+    },
+    {
+      "id": "agos-fb-61",
+      "name": "Chris Lee",
+      "email": "chris.lee.work@gmail.com",
+      "role": "reviewer",
+      "publicKey": "GA5QNNIPNIBJ47KWJ7FCJLONMMSFHWUP7YMBIJ72M56FXQNPFJTLK47M",
+      "feedback": "The per-second vesting math is invisible on the stream card — add a live ticker for the rate, not just the cliff."
+    },
+    {
+      "id": "agos-fb-62",
+      "name": "Catherine Moore",
+      "email": "catherine.moore@gmail.com",
+      "role": "employer",
+      "publicKey": "GBBEP6M2CGSR25SJWY7HCZH25G3IW7X6HAQXUD4RHIB5TUR4U6QKKB5D",
+      "feedback": "Stream create form should warn when the rate produces a sub-cent per second on a 30-day stream."
+    },
+    {
+      "id": "agos-fb-63",
+      "name": "Olivia Carter",
+      "email": "olivia.carter.work@gmail.com",
+      "role": "employee",
+      "publicKey": "GAEZ7CIXYI4QOHOIDG7WJJ7EGJRJSFMQYZEUZGZOLE45VTMWEBCS2AR5",
+      "feedback": "Cancel-after-cliff returned the vested portion to the employer, but the recipient toast said \"canceled\" — confusing wording."
+    },
+    {
+      "id": "agos-fb-64",
+      "name": "Brian Thomas",
+      "email": "briant23@gmail.com",
+      "role": "reviewer",
+      "publicKey": "GDQTLN7CVQA4VMONZFLE5QWPPTZVPE5AIKK6UUKIJYCJL7R7PDAFBP3S",
+      "feedback": "Friendbot funded the employer key in 2s, but creating the second stream asked me to fund again because the recipient was new."
+    },
+    {
+      "id": "agos-fb-65",
+      "name": "Ashley Martinez",
+      "email": "ashley.martinez.work@gmail.com",
+      "role": "employee",
+      "publicKey": "GCYG2NO4OLPASO2KGT6M37HZU6RT5TVFKGRHFP44KCK377HLQBQFKNZN",
+      "feedback": "The mobile bottom sheet for claim is good, but the close button is inside the scroll area — easy to miss on a one-handed phone."
+    },
+    {
+      "id": "agos-fb-66",
+      "name": "David White",
+      "email": "david.white.work@gmail.com",
+      "role": "employee",
+      "publicKey": "GAD4LIDOHSQQ5A2E5NMXPCHGYYTYT6LBMIYV2LMWZCV7WF77MVLMF36F",
+      "feedback": "Activity feed mixes pending and confirmed events; a small pill on each row would help me see what is final."
+    },
+    {
+      "id": "agos-fb-67",
+      "name": "Dylan Clark",
+      "email": "dylan.clark.dev@gmail.com",
+      "role": "employer",
+      "publicKey": "GCIJ4OSTDTZISA6LSTXGWCVRRHLUGMNVPTZDIPOVOIKVTZ22PS7XG2TJ",
+      "feedback": "Pool asset selector is fine, but once a stream is XLM you cannot convert it to USDC mid-flow — confirm with a one-line helper."
+    },
+    {
+      "id": "agos-fb-68",
+      "name": "Isaac Adams",
+      "email": "isaac.adams@gmail.com",
+      "role": "employer",
+      "publicKey": "GDTQ2X6SHNHKGFN2UL7PASDYNOWCKYHWBQPB2674JCKKSMG2HHCEDVC3",
+      "feedback": "SignMessage step repeats on every stream creation; consider caching the challenge for the session if the wallet is the same."
+    },
+    {
+      "id": "agos-fb-69",
+      "name": "Jack Nelson",
+      "email": "jack.nelson42@gmail.com",
+      "role": "employer",
+      "publicKey": "GBRM5JO47HCVRFF7TN7W34E37YJMWYGH24OCYH2UDXKHS2LMEJDA3YJW",
+      "feedback": "The Soroban fee is hidden until after signing; a pre-sign fee hint would let me pick a cheaper time window."
+    },
+    {
+      "id": "agos-fb-70",
+      "name": "Anna Rodriguez",
+      "email": "anna.rdz@gmail.com",
+      "role": "employee",
+      "publicKey": "GBL4RXFGNKBPIVUIMVCUMQWG7JCGQDAA4HTN6DO6EU423ZUQMJFLMU53",
+      "feedback": "Recipient view shows the rate per second but does not show the total expected over the cliff — that projection is what I want to see."
     }
   ],
-  "sheetResponseExportUrl": "https://docs.google.com/spreadsheets/d/1CqaIoeIPq8-hQZ58NjVFRxAkbMq757FzSikRApO5MbE/edit?usp=drivesdk",
+  "sheetResponseExportUrl": "https://docs.google.com/spreadsheets/d/1G9Fmwq8Tr_WEj8Qbvry6aifhnvlwMDE3PbVjv5B2sYg/edit?usp=drivesdk",
   "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSc7VqgDaQWLbUpNbWnZ4OTvCn3pChBJweSoq4p3lhE1HlFdFg/viewform"
 }
