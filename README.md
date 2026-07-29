@@ -7,8 +7,8 @@
 - [x] **Public GitHub repository** — link to the public repo
 - [x] **Minimum 20+ meaningful commits** — see commit history on `main`
 - [x] **Live deployed application** — https://agos-stellar.vercel.app
-- [x] **PPT/Pitch deck link** — [View Pitch Deck](https://drive.google.com/file/d/17qf44UnXSlH3l_SwYjo0Ej_3VjYa9vUf/view?usp=drive_link)
-- [x] **Demo video link** — [Watch Demo](https://drive.google.com/file/d/1l8sVQfae0O-KUqcAaRtCHXwL3pnZzoTk/view?usp=drive_link)
+- [x] **PPT/Pitch deck link** — [View Pitch Deck](https://docs.google.com/presentation/d/18Bb32FJtwwhClh1pIw51HKkTvKk6h5p3/edit?usp=sharing)
+- [x] **Demo video link** — [Watch Demo (employer creates a stream)](https://drive.google.com/file/d/1V9-FYsYt47lESFv2Y1I3EO3tCk7EW2w5/view?usp=sharing) · [Part 2 (employee claims)](https://drive.google.com/file/d/1DgLRieAjTLd2qLPQ5jKR1B05R7nvFhYZ/view?usp=sharing)
 
 ### Proof
 
@@ -45,7 +45,7 @@ Current evidence totals
 > **Agos** means *flow* in Filipino. It turns salaries and grants into a live stream of money on Stellar: a recipient earns by the second, and withdraws real funds whenever they want.
 
 **Live app:** https://agos-stellar.vercel.app
-**Network:** Stellar testnet (Test SDF Network ; September 2015)
+**Network:** Stellar mainnet (Public Global Stellar Network ; September 2015)
 **Track:** Savings & DeFi — Stellar APAC Hackathon
 
 ---
@@ -121,8 +121,8 @@ Browsing the landing page, public stats, and stream pages works **without connec
 5. STOP/CANCEL  Employer stops -> contract settles vested to recipient + reclaims the rest
 ```
 
-**AgosStream contract (testnet):** `CDMSQ2YYSDBUUJNEF5SBZZLBY5QT52XAJVUBVGU4WILJ3VKD2KW4EL7D`
-([view on stellar.expert](https://stellar.expert/explorer/testnet/contract/CDMSQ2YYSDBUUJNEF5SBZZLBY5QT52XAJVUBVGU4WILJ3VKD2KW4EL7D)) —
+**AgosStream contract (mainnet):** `CAPPYXSC2OCS6S62PM2TW4EWMKAINRFOSTAH5SI23PJX72B3STU6GWTH`
+([view on stellar.expert](https://stellar.expert/explorer/public/contract/CAPPYXSC2OCS6S62PM2TW4EWMKAINRFOSTAH5SI23PJX72B3STU6GWTH)) —
 source, tests, and deploy notes in [`contracts/`](contracts/).
 
 ---
@@ -142,7 +142,7 @@ USDC testnet issuer: `GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5`
 
 - **On-chain vesting, zero per-second cost.** The amount available is derived from ledger time inside the `AgosStream` Soroban contract — no timer, no transaction per second.
 - **Real contract settlement.** XLM withdrawals and stops are genuine Soroban contract invocations with explorer-linked tx hashes; the contract custodies the funds, not a backend ledger.
-- **Network-pinned signing.** The challenge is pinned to the app's testnet passphrase, so connecting works even if the wallet is set to Mainnet.
+- **Network-pinned signing.** The challenge is pinned to the app's mainnet passphrase, so connecting works even if the wallet is set to Testnet.
 - **Live drip counter.** Server-Sent Events push the growing balance to the stream page in real time.
 - **Public, honest stats.** `/stats` ("Agos in numbers") shows real interaction counts; demo and seed records are excluded.
 - **Browse without a wallet.** Landing, stats, and stream pages render unconnected.
@@ -179,7 +179,7 @@ USDC testnet issuer: `GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5`
 
 ## Stellar integration
 
-- **SEP-10 style auth.** `requestAccess` → `POST /api/auth/challenge` returns a `manageData` challenge transaction → wallet signs → `POST /api/auth/verify` → HttpOnly session cookie (7-day TTL). Session restores via `GET /api/auth/me`. The signing passphrase is pinned to the app's testnet. See the [Stellar SEP-10 spec](https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0010.md).
+- **SEP-10 style auth.** `requestAccess` → `POST /api/auth/challenge` returns a `manageData` challenge transaction → wallet signs → `POST /api/auth/verify` → HttpOnly session cookie (7-day TTL). Session restores via `GET /api/auth/me`. The signing passphrase is pinned to the app's mainnet. See the [Stellar SEP-10 spec](https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0010.md).
 - **Soroban contract (AgosStream).** XLM streams are funded into the contract (`create_stream`), withdrawn from it (`withdraw`), and stopped on it (`stop`) — all real on-chain invocations via Soroban RPC. The server signs with the hub key; the contract is the fund custodian and vesting is computed on-chain from ledger time. Source + tests in [`contracts/`](contracts/).
 - **Native XLM SAC.** The streamed token is the native XLM Stellar Asset Contract `CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC` — no trustline required.
 - **changeTrust trustline.** "Enable USDC" builds and submits a `changeTrust` op to the USDC issuer from the connected wallet; USDC streams settle via classic Horizon payments.
@@ -266,7 +266,7 @@ source-code/
 
 ---
 
-Built for the Stellar APAC Hackathon · Savings & DeFi · testnet only.
+Built for the Stellar APAC Hackathon · Savings & DeFi · live on mainnet.
 
 ## Level 5 Proof
 
@@ -310,4 +310,4 @@ The 50-user cohort and the JSON snapshot point at the **testnet** `AgosStream` c
 CDMSQ2YYSDBUUJNEF5SBZZLBY5QT52XAJVUBVGU4WILJ3VKD2KW4EL7D
 ```
 
-This is the contract the running app is wired to. A separate mainnet contract (`CAPPYXSC2OCS6S62PM2TW4EWMKAINRFOSTAH5SI23PJX72B3STU6GWTH`) is documented in `contracts/DEPLOYMENT.md` but is **not** the contract this cohort interacts with.
+This is the contract the cohort's proof data references — it predates the mainnet deploy. The live app is now wired to the mainnet contract (`CAPPYXSC2OCS6S62PM2TW4EWMKAINRFOSTAH5SI23PJX72B3STU6GWTH`), documented in `contracts/DEPLOYMENT.md`.
