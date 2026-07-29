@@ -7,7 +7,6 @@ import { Navbar } from '@/ui/components/layout/Navbar';
 import { db } from '@/server/db/client';
 import { streams } from '@/server/db/schema';
 import { eq } from 'drizzle-orm';
-import { STELLAR_NETWORK } from '@/ui/lib/network';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -200,7 +199,10 @@ export default async function HomePage({ params }: Props) {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <Waves className="w-4 h-4 text-cyan-600" />
-              <span>Agos — salary streaming on Stellar {STELLAR_NETWORK === 'public' ? 'mainnet' : 'testnet'}</span>
+              <span>
+                Agos — salary streaming on Stellar{' '}
+                {process.env.NEXT_PUBLIC_STELLAR_NETWORK === 'public' ? 'mainnet' : 'testnet'}
+              </span>
             </div>
             <div className="flex items-center gap-5">
               <Link href={`/${locale}/dashboard`} className="hover:text-foreground">
