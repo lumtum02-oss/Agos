@@ -1,6 +1,6 @@
 import { pgTable, text, timestamp } from 'drizzle-orm/pg-core';
 
-export const authNonces = pgTable('auth_nonces', {
+export const authNonces = pgTable('agos_auth_nonces', {
   nonce: text('nonce').primaryKey(),
   publicKey: text('public_key').notNull(),
   expiresAt: timestamp('expires_at', { withTimezone: true }).notNull(),

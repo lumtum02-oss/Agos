@@ -1,6 +1,6 @@
 import { pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
 
-export const sessions = pgTable('sessions', {
+export const sessions = pgTable('agos_sessions', {
   id: uuid('id').defaultRandom().primaryKey(),
   publicKey: text('public_key').notNull(),
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),

@@ -5,7 +5,7 @@ export const WITHDRAWAL_STATUSES = ['pending', 'submitted', 'confirmed', 'failed
 export type WithdrawalStatus = (typeof WITHDRAWAL_STATUSES)[number];
 export const withdrawalStatusEnum = pgEnum('withdrawal_status', WITHDRAWAL_STATUSES);
 
-export const streamWithdrawals = pgTable('stream_withdrawals', {
+export const streamWithdrawals = pgTable('agos_stream_withdrawals', {
   id: uuid('id').defaultRandom().primaryKey(),
   streamId: uuid('stream_id')
     .notNull()

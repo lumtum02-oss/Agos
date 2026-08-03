@@ -9,7 +9,7 @@ export type AssetKind = (typeof ASSET_KINDS)[number];
 export const assetKindEnum = pgEnum('asset_kind', ASSET_KINDS);
 
 export const streams = pgTable(
-  'streams',
+  'agos_streams',
   {
     id: uuid('id').defaultRandom().primaryKey(),
     employerPubkey: text('employer_pubkey').notNull(),
