@@ -22,7 +22,7 @@
 
 Submit your GitHub repository link below before the monthly deadline:
 
-**https://github.com/your-org/Agos**
+**https://github.com/lumtum02-oss/Agos**
 
 <details>
 Current evidence totals
