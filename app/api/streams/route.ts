@@ -22,12 +22,23 @@ const createStreamSchema = z.object({
   fundedAmountMinor: z.string().min(1),
 });
 
-async function listStreams(_req: NextRequest, ctx: HandlerContext) {
+const listQuerySchema = z.object({
+  cursor: z.string().min(1).optional(),
+  status: z.enum(['active', 'cancelled', 'completed', 'paused']).optional(),
+  limit: z.coerce.number().int().min(1).max(100).optional(),
+});
+
+async function listStreams(req: NextRequest, ctx: HandlerContext) {
   ensureBootstrap();
   const publicKey = ctx.publicKey as string;
-  const streams = await streamService.getStreamsByEmployer(publicKey);
+  const query = listQuerySchema.parse({
+    cursor: req.nextUrl.searchParams.get('cursor') ?? undefined,
+    status: req.nextUrl.searchParams.get('status') ?? undefined,
+    limit: req.nextUrl.searchParams.get('limit') ?? undefined,
+  });
+  const { rows, nextCursor } = await streamService.getStreamsByEmployer(publicKey, query);
   const stats = await streamService.getStreamStats(publicKey);
-  return ok({ streams, stats });
+  return ok({ streams: rows, nextCursor, stats });
 }
 
 async function createStream(req: NextRequest, ctx: HandlerContext) {

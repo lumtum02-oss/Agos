@@ -1,9 +1,9 @@
-import { and, eq, sql } from 'drizzle-orm';
+import { and, asc, desc, eq, lt, sql } from 'drizzle-orm';
 import { StrKey } from '@stellar/stellar-sdk';
 import { env } from '@/server/config/env';
 import { db } from '@/server/db/client';
 import { streams, streamWithdrawals } from '@/server/db/schema';
-import type { AssetKind, Stream } from '@/server/db/schema';
+import type { AssetKind, Stream, StreamStatus } from '@/server/db/schema';
 import { AppError } from '@/server/lib/http';
 import { logger } from '@/server/lib/logger';
 import { eventBus } from '@/server/lib/eventBus';
@@ -130,8 +130,32 @@ export const streamService = {
     return stream;
   },
 
-  async getStreamsByEmployer(employerPubkey: string): Promise<Stream[]> {
-    return db.select().from(streams).where(eq(streams.employerPubkey, employerPubkey));
+  async getStreamsByEmployer(
+    employerPubkey: string,
+    opts: { cursor?: string; status?: StreamStatus; limit?: number } = {},
+  ): Promise<{ rows: Stream[]; nextCursor: string | null }> {
+    const limit = opts.limit ?? 50;
+    const conditions = [eq(streams.employerPubkey, employerPubkey)];
+    if (opts.status) conditions.push(eq(streams.status, opts.status));
+    if (opts.cursor) {
+      const cursorDate = new Date(opts.cursor);
+      if (!Number.isNaN(cursorDate.getTime())) {
+        conditions.push(lt(streams.createdAt, cursorDate));
+      }
+    }
+
+    const rows = await db
+      .select()
+      .from(streams)
+      .where(and(...conditions))
+      .orderBy(desc(streams.createdAt))
+      .limit(limit + 1);
+
+    const hasNext = rows.length > limit;
+    const page = hasNext ? rows.slice(0, limit) : rows;
+    const nextCursor = hasNext ? page[page.length - 1]!.createdAt.toISOString() : null;
+
+    return { rows: page, nextCursor };
   },
 
   async getStreamsByEmployee(employeePubkey: string): Promise<Stream[]> {

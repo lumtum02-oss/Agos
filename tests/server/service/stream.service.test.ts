@@ -412,11 +412,18 @@ describe('streamService.getStreamStats', () => {
 describe('streamService.getStreamsByEmployer', () => {
   beforeEach(() => vi.clearAllMocks());
 
-  it('returns all streams for employer', async () => {
+  it('returns paginated streams for employer', async () => {
     const mockStreams = [makeStream(), makeStream({ id: 'stream-uuid-002' })];
-    makeSelectChainNoLimit(mockStreams);
+    const chain = {
+      from: vi.fn().mockReturnThis(),
+      where: vi.fn().mockReturnThis(),
+      orderBy: vi.fn().mockReturnThis(),
+      limit: vi.fn().mockResolvedValue(mockStreams),
+    };
+    vi.mocked(db.select).mockReturnValue(chain as never);
 
     const result = await streamService.getStreamsByEmployer(VALID_EMPLOYER);
-    expect(result).toHaveLength(2);
+    expect(result.rows).toHaveLength(2);
+    expect(result.nextCursor).toBeNull();
   });
 });
