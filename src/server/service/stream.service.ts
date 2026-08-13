@@ -1,4 +1,4 @@
-import { eq } from 'drizzle-orm';
+import { and, eq, sql } from 'drizzle-orm';
 import { StrKey } from '@stellar/stellar-sdk';
 import { env } from '@/server/config/env';
 import { db } from '@/server/db/client';
@@ -17,6 +17,16 @@ export type CreateStreamInput = {
   ratePerSecondMinor: string;
   fundedAmountMinor: string;
 };
+
+function ensureVersionedUpdateApplied(result: { rowCount: number | null }): void {
+  if (!result.rowCount) {
+    throw new AppError(
+      'CONFLICT',
+      'Stream was modified by another request in the meantime. Please retry.',
+      409,
+    );
+  }
+}
 
 export const streamService = {
   async createStream(employerPubkey: string, data: CreateStreamInput): Promise<Stream> {
@@ -210,7 +220,7 @@ export const streamService = {
       const newStatus: Stream['status'] =
         BigInt(newWithdrawn) >= BigInt(stream.fundedAmountMinor) ? 'completed' : 'active';
 
-      await db
+      const updateResult = await db
         .update(streams)
         .set({
           withdrawnAmountMinor: newWithdrawn,
@@ -220,7 +230,8 @@ export const streamService = {
           completedAt: newStatus === 'completed' ? new Date() : undefined,
           updatedAt: new Date(),
         })
-        .where(eq(streams.id, streamId));
+        .where(and(eq(streams.id, streamId), eq(streams.version, stream.version)));
+      ensureVersionedUpdateApplied(updateResult);
 
       eventBus.publish('stream.withdrawn', {
         streamId,
@@ -300,7 +311,7 @@ export const streamService = {
       newStatus = 'completed';
     }
 
-    await db
+    const updateResult = await db
       .update(streams)
       .set({
         withdrawnAmountMinor: newWithdrawn,
@@ -310,7 +321,8 @@ export const streamService = {
         completedAt: newStatus === 'completed' ? new Date() : undefined,
         updatedAt: new Date(),
       })
-      .where(eq(streams.id, streamId));
+      .where(and(eq(streams.id, streamId), eq(streams.version, stream.version)));
+    ensureVersionedUpdateApplied(updateResult);
 
     eventBus.publish('stream.withdrawn', {
       streamId,
@@ -367,7 +379,7 @@ export const streamService = {
         throw new AppError('INTERNAL', 'On-chain stop failed. Please retry.', 502);
       }
 
-      await db
+      const updateResult = await db
         .update(streams)
         .set({
           status: 'cancelled',
@@ -376,7 +388,8 @@ export const streamService = {
           version: stream.version + 1,
           updatedAt: new Date(),
         })
-        .where(eq(streams.id, streamId));
+        .where(and(eq(streams.id, streamId), eq(streams.version, stream.version)));
+      ensureVersionedUpdateApplied(updateResult);
 
       eventBus.publish('stream.updated', {
         streamId,
@@ -418,7 +431,7 @@ export const streamService = {
       logger.info('stream.cancel.demo_refund', { streamId, refundAmount, txHash });
     }
 
-    await db
+    const updateResult = await db
       .update(streams)
       .set({
         status: 'cancelled',
@@ -426,7 +439,8 @@ export const streamService = {
         version: stream.version + 1,
         updatedAt: new Date(),
       })
-      .where(eq(streams.id, streamId));
+      .where(and(eq(streams.id, streamId), eq(streams.version, stream.version)));
+    ensureVersionedUpdateApplied(updateResult);
 
     eventBus.publish('stream.updated', {
       streamId,
@@ -450,17 +464,19 @@ export const streamService = {
     activeStreams: number;
     totalPaidOutMinor: string;
   }> {
-    const allStreams = await db
-      .select()
+    const [row] = await db
+      .select({
+        total: sql<number>`count(*)`,
+        active: sql<number>`count(*) filter (where ${streams.status} = 'active')`,
+        paid: sql<string>`coalesce(sum(${streams.withdrawnAmountMinor}::numeric), 0)::text`,
+      })
       .from(streams)
       .where(eq(streams.employerPubkey, employerPubkey));
 
-    const totalStreams = allStreams.length;
-    const activeStreams = allStreams.filter((s) => s.status === 'active').length;
-    const totalPaidOutMinor = allStreams
-      .reduce((acc, s) => acc + BigInt(s.withdrawnAmountMinor), 0n)
-      .toString();
-
-    return { totalStreams, activeStreams, totalPaidOutMinor };
+    return {
+      totalStreams: Number(row?.total ?? 0),
+      activeStreams: Number(row?.active ?? 0),
+      totalPaidOutMinor: String(row?.paid ?? '0'),
+    };
   },
 };

@@ -120,10 +120,10 @@ function makeInsertChain(result: unknown[]) {
   return chain;
 }
 
-function makeUpdateChain() {
+function makeUpdateChain(rowCount = 1) {
   const chain = {
     set: vi.fn().mockReturnThis(),
-    where: vi.fn().mockResolvedValue([]),
+    where: vi.fn().mockResolvedValue({ rowCount }),
   };
   vi.mocked(db.update).mockReturnValue(chain as never);
   return chain;
@@ -308,6 +308,29 @@ describe('streamService.withdrawEarned', () => {
     expect(result.status).toBe('confirmed'); // demo mode → confirmed
     expect(result.txHash).toMatch(/^demo-tx-/);
   });
+
+  it('throws CONFLICT when a concurrent request already updated the stream version', async () => {
+    const mockStream = makeStream();
+    const selectChain = {
+      from: vi.fn().mockReturnThis(),
+      where: vi.fn().mockReturnThis(),
+      limit: vi.fn().mockResolvedValue([mockStream]),
+    };
+    vi.mocked(db.select).mockReturnValue(selectChain as never);
+
+    const mockWithdrawal = { id: 'wd-uuid-001', ...mockStream };
+    const insertChain = {
+      values: vi.fn().mockReturnThis(),
+      returning: vi.fn().mockResolvedValue([mockWithdrawal]),
+    };
+    vi.mocked(db.insert).mockReturnValue(insertChain as never);
+    // Simulate another request already having claimed this version: 0 rows matched.
+    makeUpdateChain(0);
+
+    await expect(
+      streamService.withdrawEarned('stream-uuid-001', VALID_EMPLOYEE, new Date(Date.now())),
+    ).rejects.toMatchObject({ code: 'CONFLICT' });
+  });
 });
 
 describe('streamService.cancelStream', () => {
@@ -351,6 +374,15 @@ describe('streamService.cancelStream', () => {
     // In demo mode with refund > 0, txHash is a demo refund hash
     expect(result.txHash).toMatch(/^demo-refund-/);
   });
+
+  it('throws CONFLICT when a concurrent request already updated the stream version', async () => {
+    makeSelectChain([makeStream()]);
+    makeUpdateChain(0);
+
+    await expect(
+      streamService.cancelStream('stream-uuid-001', VALID_EMPLOYER, new Date()),
+    ).rejects.toMatchObject({ code: 'CONFLICT' });
+  });
 });
 
 describe('streamService.getStreamStats', () => {
@@ -367,9 +399,7 @@ describe('streamService.getStreamStats', () => {
 
   it('counts active and total streams correctly', async () => {
     makeSelectChainNoLimit([
-      makeStream({ status: 'active', withdrawnAmountMinor: '1000000' }),
-      makeStream({ status: 'active', withdrawnAmountMinor: '2000000' }),
-      makeStream({ status: 'cancelled', withdrawnAmountMinor: '500000' }),
+      { total: 3, active: 2, paid: '3500000' },
     ]);
 
     const result = await streamService.getStreamStats(VALID_EMPLOYER);
