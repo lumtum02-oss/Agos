@@ -449,6 +449,11 @@ export const streamService = {
         logger.info('stream.cancel.refund_confirmed', { streamId, txHash, refundAmount });
       } catch (err) {
         logger.error('stream.cancel.refund_failed', { streamId, err: String(err) });
+        throw new AppError(
+          'INTERNAL',
+          'Failed to refund unearned funds to employer. Stream was not cancelled; please retry.',
+          502,
+        );
       }
     } else if (refundMinor > 0n && env.DEMO_MODE) {
       txHash = `demo-refund-${Date.now().toString(16)}`;
