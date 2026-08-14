@@ -5,6 +5,7 @@ import { StrKey } from '@stellar/stellar-sdk';
 import { z } from 'zod';
 import { compose } from '@/server/middleware/compose';
 import { withError } from '@/server/middleware/withError';
+import { withRateLimit } from '@/server/middleware/withRateLimit';
 import { AppError, ok } from '@/server/lib/http';
 import { buildUsdcTrustlineXdr, hasUsdcTrustline } from '@/server/stellar/tx';
 import { usdcCode, usdcIssuer } from '@/server/stellar/network';
@@ -32,4 +33,4 @@ async function buildTrustline(req: NextRequest) {
 }
 
 export const GET = compose(withError)(getStatus);
-export const POST = compose(withError)(buildTrustline);
+export const POST = compose(withError, withRateLimit)(buildTrustline);

@@ -8,6 +8,7 @@ import { z } from 'zod';
 import { compose } from '@/server/middleware/compose';
 import { withAuth } from '@/server/middleware/withAuth';
 import { withError } from '@/server/middleware/withError';
+import { withRateLimit } from '@/server/middleware/withRateLimit';
 import { ok, created } from '@/server/lib/http';
 import type { HandlerContext } from '@/server/middleware/compose';
 import { streamService } from '@/server/service/stream.service';
@@ -50,4 +51,4 @@ async function createStream(req: NextRequest, ctx: HandlerContext) {
 }
 
 export const GET = compose(withError, withAuth)(listStreams);
-export const POST = compose(withError, withAuth)(createStream);
+export const POST = compose(withError, withRateLimit, withAuth)(createStream);

@@ -6,6 +6,7 @@ import type { NextRequest } from 'next/server';
 import { compose } from '@/server/middleware/compose';
 import { withAuth } from '@/server/middleware/withAuth';
 import { withError } from '@/server/middleware/withError';
+import { withRateLimit } from '@/server/middleware/withRateLimit';
 import { ok } from '@/server/lib/http';
 import type { HandlerContext } from '@/server/middleware/compose';
 import { streamService } from '@/server/service/stream.service';
@@ -18,4 +19,4 @@ async function cancelStream(req: NextRequest, ctx: HandlerContext) {
   return ok(result);
 }
 
-export const POST = compose(withError, withAuth)(cancelStream);
+export const POST = compose(withError, withRateLimit, withAuth)(cancelStream);
