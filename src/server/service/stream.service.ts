@@ -403,12 +403,14 @@ export const streamService = {
         throw new AppError('INTERNAL', 'On-chain stop failed. Please retry.', 502);
       }
 
+      const settledWithdrawnMinor = BigInt(stream.fundedAmountMinor) - refundMinor;
       const updateResult = await db
         .update(streams)
         .set({
           status: 'cancelled',
           cancelledAt: now,
           lastWithdrawTxHash: txHash,
+          withdrawnAmountMinor: settledWithdrawnMinor.toString(),
           version: stream.version + 1,
           updatedAt: new Date(),
         })
